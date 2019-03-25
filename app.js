@@ -1,6 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
-const fs = require('fs');
+const fs = require('fs'); 
 
 const app=express();
 
@@ -24,9 +24,9 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use((req,res,next)=>{
-    res.render('maintenance.hbs');
-});
+// app.use((req,res,next)=>{
+//     res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -49,6 +49,6 @@ app.get('/bad',(req,res)=>{
     })
 })
 
-app.listen(3100,()=>{
+app.listen(process.env.PORT || 3100,()=>{
     console.log("Server started");
 });
